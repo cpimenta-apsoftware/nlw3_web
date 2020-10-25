@@ -1,44 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Roteiro para criação desse projeto:
 
-## Available Scripts
+Ambiente:
+node -v : v12.19.0 (choco upgrade nodejs-lts)
+npm -v : 6.14.8
+yarn -v : 1.22.5 (choco upgrade yarn)
 
-In the project directory, you can run:
+Criação do projeto:
+1- yarn create react-app web --template typescript
 
-### `yarn start`
+Pacote de ícones:
+2- yarn add react-icons
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Módulo de navegação entre páginas:
+3- yarn add react-router-dom
+4- yarn add @types/react-router-dom -D
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Módulo de mapas:
+6- yarn add leaflet react-leaflet
+7- yarn add @types/react-leaflet -D
 
-### `yarn test`
+Módulo de requisições:
+Para realizar requisições entre front-end e back-end pode ser utilizado o fetch() nativo do browser, porém é melhor utilizar o axios porque com ele é possível definir uma baseUrl não sendo necessário informar todo o texto da requisição que é repetida nas diversas chamadas à mesma API.
+8- yarn add axios
+9- criar a pasta services (que pode ser utilizado para qualquer tipo de comunicação com servições externos: banco de dados, API, envio de alguma coisa, indexDb, local storage) dentro da pasta src, e dentro da pasta services criar o arquivo api.ts.
+10- toda a lógica de iteração das telas (iteração com o usuário, cominicação com API) devem ser feitas no React utilizando o hooks (useEffect), onde o primeiro argumento é uma função que conterá o código que deve ser executado, e o segundo argumento é um array de variáveis que quando tiverem seus valores alterados irão dispará a execução da função no primeiro argumento.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+UseState
+Para qualquer tipo de informação que se queira armazenar no componente (funcionalidade similar a uma session)

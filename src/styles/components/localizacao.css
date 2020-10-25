@@ -1,0 +1,10 @@
+#localizacao { 
+  font-size: 24px;
+
+  display: flex;
+  flex-direction: column;  
+}
+
+#localizacao strong {
+  font-weight: 800;
+}
