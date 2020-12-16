@@ -1,6 +1,6 @@
 const localizacaoPadrao = {
-  latitude: -12.9606042,
-  longitude: -38.4744777
+  latitude: -12.9694025,
+  longitude: -38.490993
 };
 
 export default localizacaoPadrao;

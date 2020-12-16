@@ -22,6 +22,11 @@ import api from "../services/api";
 //   popupAnchor: [0, -60]
 // })
 
+interface Imagem {
+  id: number;
+  url: string;
+}
+
 interface Orfanato {
   latitude: number;
   longitude: number;
@@ -30,10 +35,7 @@ interface Orfanato {
   instrucoes: string;
   horario_atendimento: string;
   aberto_fim_semana: boolean;
-  imagens: Array<{
-    id: number;
-    url: string;
-  }>
+  imagens: Array<Imagem>
 };
 
 interface ParametrosOrfanato {
@@ -49,7 +51,11 @@ export default function Orfanato() {
 
   useEffect(() => {
     api.get(`orfanatos/${params.id}`).then(resposta => {
-      definirOrfanato(resposta.data);
+      let loOrfanato = resposta.data as Orfanato;
+       if(loOrfanato.imagens && !loOrfanato.imagens.length){        
+        loOrfanato.imagens = [{id:0, url:""}]
+       }
+      definirOrfanato(loOrfanato);
     });
   }, [params.id]);
 
@@ -72,7 +78,7 @@ export default function Orfanato() {
       <BarraLateral />
       <main>
         <div className="orphanage-details">
-          <img src={orfanato.imagens[indiceAtivoImagem].url} alt={orfanato.nome} />
+          <img src={orfanato.imagens[indiceAtivoImagem].url} alt="Sem imagem" />
 
           <div className="images">
             {/* <button className="active" type="button">
@@ -90,7 +96,7 @@ export default function Orfanato() {
                   onClick={() => {
                     definirIndiceAtivoImagem(indice)
                   }}>
-                    <img src={imagem.url} alt={orfanato.nome} />
+                    <img src={imagem.url} alt="Sem imagem"/>
                 </button>
               );
             })}
