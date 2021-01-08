@@ -21,7 +21,7 @@ Parte do conteúdo foi disponibilizado no NLW 3, evento realizado pela Rocketsea
 
 ## Execução
 ```sh
-cd nlw3_web
+cd nlw3-web
 yarn
 yarn start
 ```
