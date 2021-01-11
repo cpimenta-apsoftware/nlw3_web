@@ -1,6 +1,6 @@
 # nlw3-web
 
-Aplicação para marcação de orfanatos em uma mapa com informações para promover visitas e acões de ajuda.
+Aplicação web para marcação de orfanatos em uma mapa com informações para promover visitas e acões de ajuda.
 Parte do conteúdo foi disponibilizado no NLW 3, evento realizado pela Rocketseat (https://github.com/Rocketseat).
 
 ## Demonstração
